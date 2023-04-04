@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
+import React, {useContext, useState } from 'react'
 import { fetchWeatherData } from './api.js'
+import WeatherContext from './weatherContext.js'
+
 
 function weatherSearch() {
     const [address, setAddres] = useState('')
-    const [weatherData, setWeatherData] = useState(null)
+    const { setWeatherData } = useContext(WeatherContext)
     const [error, setError] = useState('')
 
 
@@ -11,15 +13,15 @@ const handleSearch = async (e) => {
     e.preventDefault();
     try{
         const data = await fetchWeatherData(address)
-        setWeatherData(data);
-        console.log(weatherData.data)
+        // console.log(data)
+        setWeatherData(data.data);
         setError('');
-        console.log(data)
+        // console.log(data)
     } catch (error) {
         setWeatherData(null);
         setError(error.message)
-    } 
-
+    }
+    
 }
 
     return (
@@ -32,11 +34,7 @@ const handleSearch = async (e) => {
                 <button type='submit'>Pesquisar</button>
             </form>
             {error && <div>{error}</div>}
-            {weatherData && (
-                <div>
-                    {/* <p>{weatherData}</p> */}
-                </div>
-            )}
+            
         </div>
     )
 }
