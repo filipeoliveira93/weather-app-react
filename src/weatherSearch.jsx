@@ -13,10 +13,10 @@ const handleSearch = async (e) => {
     e.preventDefault();
     try{
         const data = await fetchWeatherData(address)
-        // console.log(data)
-        setWeatherData(data.data);
+        setWeatherData(data);
         setError('');
-        // console.log(data)
+        console.log(data)
+        
     } catch (error) {
         setWeatherData(null);
         setError(error.message)
