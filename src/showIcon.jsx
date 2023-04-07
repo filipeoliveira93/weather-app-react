@@ -34,7 +34,7 @@ function showIcon( {weatherCode}) {
     };
     const weatherData = weatherIcons[weatherCode] || [];    
     let src = weatherData[2] ? `/src/assets/icons/${weatherData[2]}.svg` : '';
-        console.log(src)
+        // console.log(weatherIcons[3])
     let weatherdescription = weatherData[1] ? weatherData[1] : ''
 
     return (

@@ -2,9 +2,9 @@ import React, { useContext } from 'react'
 import WeatherContext from './weatherContext'
 import ShowIcon from './showIcon'
 
-function dayForecast() {
+function dailyForecast() {
     const {weatherData} = useContext(WeatherContext)
-    console.log(weatherData)
+    // console.log(weatherData)
     const daydata = {}
     if (weatherData != null) {
         daydata.daytemperature = weatherData.current_weather.temperature,
@@ -13,18 +13,19 @@ function dayForecast() {
         // console.log(daydata)
     }
 
-
-return (
-    <div>
-        {weatherData && 
-        <>
-            <p>{daydata.daytemperature}</p> 
-            <p>{daydata.weathercode}</p> 
-            <ShowIcon weatherCode={daydata.weathercode}/>
-        </>
+    return (
+        <div>
+            {weatherData && 
+            <>
+                <p>{daydata.daytemperature}</p> 
+                {/* <p>{daydata.weathercode}</p>  */}
+                <ShowIcon weatherCode={daydata.weathercode}/>
+            </>
+                }
+        </div>
+    )
             }
-    </div>
-)
-        }
+    
+    export default dailyForecast
 
-export default dayForecast
+

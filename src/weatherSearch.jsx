@@ -15,7 +15,7 @@ const handleSearch = async (e) => {
         const data = await fetchWeatherData(address)
         setWeatherData(data);
         setError('');
-        console.log(data)
+        // console.log(data)
         
     } catch (error) {
         setWeatherData(null);
