@@ -4,18 +4,20 @@ import WeatherContext from './weatherContext.js'
 
 
 function weatherSearch() {
-    const [address, setAddres] = useState('')
+    let [address, setAddres] = useState('')
     const { setWeatherData } = useContext(WeatherContext)
     const [error, setError] = useState('')
 
 
 const handleSearch = async (e) => {
+
     e.preventDefault();
+    address = address ? address : 'Maringá - PR';
     try{
         const data = await fetchWeatherData(address)
         setWeatherData(data);
         setError('');
-        // console.log(data)
+        console.log(data)
         
     } catch (error) {
         setWeatherData(null);
