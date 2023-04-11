@@ -12,7 +12,7 @@ const API_KEY = 'AIzaSyAtDRhVstWbo-YnbnO6h64LyxFr0GOridg'
  */
 export const fetchWeatherData = async (address) => {
     let geocodeResult = {}
-    console.log(address)
+    // console.log(address)
     try {
         const geocodeResponse = await axios.get(`${GEOCODE_API_URL}?address=${address}&key=${API_KEY}`)
 

@@ -1,37 +1,35 @@
-import React, { useContext } from 'react'
-import WeatherContext from './weatherContext'
-import ShowIcon from './showIcon'
+import React, { useContext } from "react";
+import WeatherContext from "./weatherContext";
+import ShowIcon from "./showIcon";
 
-function dailyForecast() {
-    const {weatherData} = useContext(WeatherContext)
-    // console.log(weatherData)
-    var dailyData = {}
-    if (weatherData != null) {
-        dailyData = weatherData.daily
-        dailyData.precipitation_probability_max
-        dailyData.days = []
-        for ( let date in dailyData.time) {
-            let split = dailyData.time[date].split('-')
+function DailyForecast() {
+	const { weatherData } = useContext(WeatherContext);
 
-            dailyData.days.push(split[2])
+	if (!weatherData) {
+		return null;
+	}
+	var dailyData = weatherData.daily;
+	var hourlyData = weatherData.hourly.time
+	console.log(hourlyData)
 
-        }
-   } else { return null } //returns null if there is no data.
+	const days = dailyData.time.map((date) => {
+		const split = date.split("-");
+		return split[2];
+	});
 
-    console.log(dailyData.days)
-
-    return (
-        <div>
-            {weatherData && (
-               {dailyData.days.map((day) => (
-                <div key={key}>
-                    <h2> Dia {day}</h2>
-                    <p>Probabilidade de precipitação {dailyData.precipitation_probability_max}</p>
-                    <showIcon watherCode={daily}
-                </div>
-               ))}
-            ) }
-        </div>
-    )
-            }
-    export default dailyForecast
+	
+	return (
+		<div>
+			{days.map((day, index) => (
+				<div key={index}>
+					<h2> dia {day}</h2>
+					<p>Probabilidade de chuva: {dailyData.precipitation_probability_max[index]} %</p>
+                    <p>máx: {dailyData.temperature_2m_max[index]} °C</p>
+                    <p>min: {dailyData.temperature_2m_min[index]} °C</p>
+					<ShowIcon weatherCode={dailyData.weathercode[index]} />
+				</div>
+			))}
+		</div>
+	);
+}
+export default DailyForecast;
