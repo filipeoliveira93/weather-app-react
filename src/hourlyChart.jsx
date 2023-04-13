@@ -57,9 +57,15 @@ function HourlyChart() {
 			// },
 		},
 		theme: {
-			palette: "palette5", // upto palette10
+			palette: "palette1", // upto palette10
 		},
-		
+		dataLabels: {
+			enabled: true,
+			style: {
+				colors: ["#333"],
+			},
+			offsetX: 0,
+		},
 		// fill: {
 		// 	type: "gradient",
 
@@ -70,22 +76,20 @@ function HourlyChart() {
 		// 		stops: [0, 90, 30],
 		// 	}
 		// },
-		dataLabels: {
-			enabled: false,
-		},
+		// dataLabels: {
+		// 	enabled: false,
+		// },
 		xaxis: {
 			type: "datetime",
 			tickAmount: 6,
-			tickPlacement: 'between',
+			tickPlacement: "between",
 			categories: hourlyData.time.slice(0, 32),
 			// tooltip: {
 			// 	x: {
 			// 		format: "DD/MM/yy HH:MM",
 			// 	},
-				
-				
+
 			// },
-			
 		},
 		yaxis: {
 			title: {
