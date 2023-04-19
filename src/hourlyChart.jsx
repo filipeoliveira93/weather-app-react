@@ -18,8 +18,8 @@ function HourlyChart() {
 		// split =
 		return split[1];
 	});
-	// let hoursday = hours.slice(0, 24);
-	// console.log(hours);
+	let hoursday = hours.slice(0, 32);
+	console.log(hoursday);
 	const seriesx = [
 		{
 			name: "hours",
@@ -37,7 +37,13 @@ function HourlyChart() {
 		chart: {
 			id: "line-chart",
 			type: "area",
-
+			background: "#1d1e22",
+			dropShadow: {
+				enabled: true,
+				top: 0,
+				left: 0,
+				blur: 6,
+			},
 			toolbar: {
 				show: true,
 				tools: {
@@ -56,15 +62,29 @@ function HourlyChart() {
 			// 	blur: 6,
 			// },
 		},
-		theme: {
-			palette: "palette1", // upto palette10
-		},
+		// theme: {
+		// 	palette: "palette1", // upto palette10
+		// },
 		dataLabels: {
 			enabled: true,
 			style: {
 				colors: ["#333"],
 			},
 			offsetX: 0,
+		},
+		fill: {
+			type: "gradient",
+			gradient: {
+				shade: "dark",
+				type: "vertical",
+				shadeIntensity: 0.5,
+				gradientToColors: ["#2eb491", "#b4912e"], // optional, if not defined - uses the shades of same color in series
+				inverseColors: true,
+				opacityFrom: 1,
+				opacityTo: 0.4,
+				stops: [0, 80, 100],
+				colorStops: [],
+			},
 		},
 		// fill: {
 		// 	type: "gradient",
@@ -84,12 +104,11 @@ function HourlyChart() {
 			tickAmount: 6,
 			tickPlacement: "between",
 			categories: hourlyData.time.slice(0, 32),
-			// tooltip: {
-			// 	x: {
-			// 		format: "DD/MM/yy HH:MM",
-			// 	},
-
-			// },
+			tooltip: {
+				x: {
+					format: "dd/MM/yy HH:mm",
+				},
+			},
 		},
 		yaxis: {
 			title: {
