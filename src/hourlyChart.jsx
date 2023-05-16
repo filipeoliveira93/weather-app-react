@@ -9,30 +9,33 @@ function HourlyChart() {
 	if (!weatherData) {
 		return null;
 	}
+	// console.log(weatherData)
 	const hourlyData = weatherData?.hourly;
 
 	// console.log(hourlyData.time);
 	const hours = hourlyData?.time.map((hour) => {
 		const split = hour.split("T");
 		// console.log(split[1]);
-		// split =
+
 		return split[1];
 	});
-	let hoursday = hours.slice(0, 32);
-	console.log(hoursday);
-	const seriesx = [
-		{
+	let hoursday = hours ? hours.slice(0, 32) : [0];
+	// console.log("hoursday " + hoursday);
+	const seriesx =	{
 			name: "hours",
-			data: hours.slice(0, 32).map((hour) => hour.split(":")[0]),
-		},
-	];
-	console.log(seriesx);
+			data: hourlyData.time.slice(0, 32)
+			
+		}
+	
+	console.log(seriesx.data);
 	const seriesy = [
 		{
 			name: "temperature",
 			data: hourlyData.temperature_2m.slice(0, 32),
 		},
 	];
+	// console.log(seriesy);
+
 	const options = {
 		chart: {
 			id: "line-chart",
@@ -42,85 +45,45 @@ function HourlyChart() {
 				enabled: true,
 				top: 0,
 				left: 0,
-				blur: 6,
-			},
-			toolbar: {
-				show: true,
-				tools: {
-					selection: true,
-					zoom: true,
-					zoomin: true,
-					zoomout: true,
-					pan: true,
-					reset: true,
-				},
-			},
-			// background: "#ffff"
-			// dropShadow: {
-			// 	enabled: true,
-			// 	left: 0,
-			// 	blur: 6,
-			// },
-		},
-		// theme: {
-		// 	palette: "palette1", // upto palette10
-		// },
-		dataLabels: {
-			enabled: true,
-			style: {
-				colors: ["#333"],
-			},
-			offsetX: 0,
-		},
-		fill: {
-			type: "gradient",
-			gradient: {
-				shade: "dark",
-				type: "vertical",
-				shadeIntensity: 0.5,
-				gradientToColors: ["#2eb491", "#b4912e"], // optional, if not defined - uses the shades of same color in series
-				inverseColors: true,
-				opacityFrom: 1,
-				opacityTo: 0.4,
-				stops: [0, 80, 100],
-				colorStops: [],
+				blur: 2,
 			},
 		},
-		// fill: {
-		// 	type: "gradient",
+			xaxis: {
+				type: 'datetime',
+				categories: seriesx.data,
+			
+				tickPlacement: "between",
+				// categories: hourlyData.time.slice(0, 32),
+				// tooltip: {
+				// 	x: {
+				// 		format: "dd/MM/yy HH:mm",
+				// 	},
+				// },
+				labels: {
+					show: true,
+					datetimeFormatter: {
+						year: 'yyyy',
+						month: 'MMM \'yy',
+						day: 'dd MMM',
+						hour: 'HH:mm'
+					  },
+					  style: {
+						colors: ['red', 'red'],
+						fontSize: '12px',
+						fontFamily: ' sans-serif',
+						fontWeight: 400,
+						cssClass: 'apexcharts-xaxis-label',
+					},
+				}
+			},
 
-		// 	gradient: {
-		// 		shadeIntensity: 1,
-		// 		opacityFrom: 0.5,
-		// 		opacityTo: 0.8,
-		// 		stops: [0, 90, 30],
-		// 	}
-		// },
-		// dataLabels: {
-		// 	enabled: false,
-		// },
-		xaxis: {
-			type: "datetime",
-			tickAmount: 6,
-			tickPlacement: "between",
-			categories: hourlyData.time.slice(0, 32),
-			tooltip: {
-				x: {
-					format: "dd/MM/yy HH:mm",
-				},
-			},
-		},
-		yaxis: {
-			title: {
-				text: "temp",
-			},
-		},
-		stroke: {
-			curve: "smooth",
-		},
-	};
-
-	return <Chart options={options} series={seriesy} type='area' width={500} />;
+		
+	}
+	return (
+		<>
+			<Chart options={options} series={seriesy} type='area' />
+		</>
+	);
 }
 
 export default HourlyChart;
