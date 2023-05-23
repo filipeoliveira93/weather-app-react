@@ -31,7 +31,7 @@ export const fetchWeatherData = async (address) => {
         const forecastResult = forecastResponse.data
         forecastResult.addressResult = geocodeResult
 
-        // console.log(forecastResult)
+        console.log(forecastResult)
 
         return forecastResult
     } catch (error) {

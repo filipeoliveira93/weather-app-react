@@ -10,8 +10,8 @@ function App() {
 	return (
 		<WeatherContext.Provider value={{ weatherData, setWeatherData }}>
 			<WeatherSearch />
-			{/* <TodayForecast />
-			<DailyForecast /> */}
+			{/* <TodayForecast /> */}
+			{/* <DailyForecast />  */}
 			<HourlyChart />
 		</WeatherContext.Provider>
 	);
