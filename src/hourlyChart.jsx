@@ -3,7 +3,17 @@ import { useContext } from "react";
 import WeatherContext from "./weatherContext";
 import Chart from "react-apexcharts";
 
+const colors = {
+	'blue-1':'#202b3b',
+	'blue-2':'#0b131e',
+	'blue-3': '#0095ff',
+	'yellow-1': '#f8d600',
+	'green-1': '#14b8a6',
+	'green-2':'#5eead4'
+  }
+
 function HourlyChart() {
+
 	const { weatherData } = useContext(WeatherContext);
 
 	if (!weatherData) {
@@ -42,13 +52,13 @@ function HourlyChart() {
 				breakpoint: 407,
 				options: {
 					chart: {
-						background:"#242424",
-						height: "250px",
-						width: "320px",
+						// background:"#242424",
+						// height: "250px",
+						// width: "320px",
 					},
 					plotOptions: {
 						bar: {
-							horizontal: false,
+							horizontal: true,
 						},
 					},
 					legend: {
@@ -59,12 +69,12 @@ function HourlyChart() {
 		],
 
 		chart: {
-			width:  '450px',
-			height: '450px',
+			// width:  650,
+			// height: 650,
 			animations: {
-				enabled: false,
+				enabled: true,
 			},
-			background: "#242424",
+			background: colors["blue-1"],
 			dropShadow: {
 				left: 0,
 				blur: 6,
@@ -92,7 +102,7 @@ function HourlyChart() {
 			},
 			radialBar: {
 				hollow: {
-					background: "#fff",
+					background: colors['blue-3'],
 				},
 				dataLabels: {
 					name: {},
@@ -119,7 +129,7 @@ function HourlyChart() {
 			},
 			background: {
 				borderRadius: 3,
-				// borderColor: "#405667"
+				borderColor: "#405667"
 			},
 			dropShadow: {},
 		},
@@ -133,14 +143,14 @@ function HourlyChart() {
 				opacityTo: 0.6,
 				colorStops: [
 					{
-						opacity: 0.3,
-						offset: 0,
-						color: "#44E8D2",
+						opacity: 0.9,
+						offset: 40,
+						color: colors['green-1'],
 					},
 					{
-						opacity: 0.4,
+						opacity: 0.7,
 						offset: 100,
-						color: "#2D58B5",
+						color: colors['blue-3'],
 					},
 				],
 			},
@@ -187,13 +197,16 @@ function HourlyChart() {
 		},
 
 		stroke: {
-			lineCap: "round",
-			dashArray: 2,
+			lineCap: "smooth",
+			dashArray: 0,
+			color: 'red',
+			width: 4,
+			colors: [colors['green-2']]
 		},
 		tooltip: {
 			theme: "dark",
 			marker: {
-				show: false,
+				show: true,
 			},
 		},
 
@@ -223,7 +236,7 @@ function HourlyChart() {
 				offsetY: -1,
 			},
 			axisTicks: {
-				color: "#1DADD9",
+				color: '#fff',
 			},
 			tickAmount: 12,
 			title: {
@@ -250,8 +263,10 @@ function HourlyChart() {
 
 	return (
 		<>
-			
-			<Chart className="w-[40rem] sm:w-[200px] flex justify-center items-center bg-slate-50" options={options} series={seriesy} type='area'/>
+			<div className={`w-[90%]  max-w-[40rem] bg-blue-1 mx-auto rounded-2xl flex flex-col justify-center  items-center`}>
+			<Chart className="py-3 px-3 max-w-[40rem] mx-auto w-[100%] min-w-[20rem]" options={options} series={seriesy} type='area'/>
+
+			</div>
 		</>
 	);
 }
