@@ -3,6 +3,6 @@
 @tailwind utilities;
 
 body {
-    @apply bg-blue-2
+    @apply bg-blue-2 text-slate-100
 }
 

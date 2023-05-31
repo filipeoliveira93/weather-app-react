@@ -1,7 +1,7 @@
 import React from "react";
 
 
-function showIcon( {weatherCode}) {
+function showIcon( {weatherCode, width, height, styles}  ) {
     const weatherIcons = {
         0: ['☀️', 'Céu limpo', 'clear-day'],
         1: ['🌤️', 'Limpo com nuvens', 'partly-cloudy-day'],
@@ -38,10 +38,10 @@ function showIcon( {weatherCode}) {
     let weatherdescription = weatherData[1] ? weatherData[1] : ''
 
     return (
-        <>
-            <img src={src} alt="Weather icon"/>
+        <div  className={styles}>
+            <img width={width} height={height} src={src} alt="Weather icon"/>
             <p>{weatherdescription}</p>
-        </>
+        </div>
     )
 
 }
