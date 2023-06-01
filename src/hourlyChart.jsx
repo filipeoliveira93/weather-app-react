@@ -263,7 +263,7 @@ function HourlyChart() {
 
 	return (
 		<>
-			<div className={`w-[90%]  max-w-[40rem] bg-blue-1 mx-auto rounded-2xl flex flex-col justify-center  items-center`}>
+			<div className={`w-[90%]  max-w-[40rem] bg-blue-1 mx-auto  rounded-2xl flex flex-col justify-center  items-center`}>
 			<Chart className="py-3 px-3 max-w-[40rem] mx-auto w-[100%] min-w-[20rem]" options={options} series={seriesy} type='area'/>
 
 			</div>

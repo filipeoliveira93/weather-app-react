@@ -12,7 +12,7 @@ function App() {
 			<WeatherSearch />
 			{/* <TodayForecast /> */}
 			<DailyForecast /> 
-			{/* <HourlyChart /> */}
+			<HourlyChart />
 		</WeatherContext.Provider>
 	);
 }
