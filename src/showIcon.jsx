@@ -33,7 +33,7 @@ function showIcon( {weatherCode, width, height, styles}  ) {
         99: ['🌩️', 'Trovoadas com granizo Forte', 'thunderstorms-rain']
     };
     const weatherData = weatherIcons[weatherCode] || [];    
-    let src = weatherData[2] ? `/public/icons/${weatherData[2]}.svg` : '';
+    let src = weatherData[2] ? `/icons/${weatherData[2]}.svg` : '';
         // console.log(weatherIcons[3])
     let weatherdescription = weatherData[1] ? weatherData[1] : ''
 
