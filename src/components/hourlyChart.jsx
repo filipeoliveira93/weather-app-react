@@ -1,25 +1,24 @@
 import React from "react";
 import { useContext } from "react";
-import WeatherContext from "./weatherContext";
+import WeatherContext from "../weatherContext";
 import Chart from "react-apexcharts";
 
 const colors = {
-	'blue-1':'#202b3b',
-	'blue-2':'#0b131e',
-	'blue-3': '#0095ff',
-	'yellow-1': '#f8d600',
-	'green-1': '#14b8a6',
-	'green-2':'#5eead4'
-  }
+	"blue-1": "#202b3b",
+	"blue-2": "#0b131e",
+	"blue-3": "#0095ff",
+	"yellow-1": "#f8d600",
+	"green-1": "#14b8a6",
+	"green-2": "#5eead4",
+};
 
 function HourlyChart() {
-
 	const { weatherData } = useContext(WeatherContext);
 
 	if (!weatherData) {
 		return null;
 	}
-	// console.log(weatherData)
+	console.log(weatherData);
 	const hourlyData = weatherData?.hourly;
 
 	// console.log(hourlyData.time);
@@ -102,7 +101,7 @@ function HourlyChart() {
 			},
 			radialBar: {
 				hollow: {
-					background: colors['blue-3'],
+					background: colors["blue-3"],
 				},
 				dataLabels: {
 					name: {},
@@ -129,7 +128,7 @@ function HourlyChart() {
 			},
 			background: {
 				borderRadius: 3,
-				borderColor: "#405667"
+				borderColor: "#405667",
 			},
 			dropShadow: {},
 		},
@@ -145,12 +144,12 @@ function HourlyChart() {
 					{
 						opacity: 0.9,
 						offset: 40,
-						color: colors['green-1'],
+						color: colors["green-1"],
 					},
 					{
 						opacity: 0.7,
 						offset: 100,
-						color: colors['blue-3'],
+						color: colors["blue-3"],
 					},
 				],
 			},
@@ -199,9 +198,9 @@ function HourlyChart() {
 		stroke: {
 			lineCap: "smooth",
 			dashArray: 0,
-			color: 'red',
+			color: "red",
 			width: 4,
-			colors: [colors['green-2']]
+			colors: [colors["green-2"]],
 		},
 		tooltip: {
 			theme: "dark",
@@ -236,7 +235,7 @@ function HourlyChart() {
 				offsetY: -1,
 			},
 			axisTicks: {
-				color: '#fff',
+				color: "#fff",
 			},
 			tickAmount: 12,
 			title: {
@@ -263,9 +262,14 @@ function HourlyChart() {
 
 	return (
 		<>
-			<div className={`w-[90%]  max-w-[40rem] bg-blue-1 mx-auto  rounded-2xl flex flex-col justify-center  items-center`}>
-			<Chart className="py-3 px-3 max-w-[40rem] mx-auto w-[100%] min-w-[20rem]" options={options} series={seriesy} type='area'/>
-
+			<div
+				className={`w-[90%]  max-w-[40rem] bg-blue-1 mx-auto  rounded-2xl flex flex-col justify-center  items-center`}>
+				<Chart
+					className='py-3 px-3 max-w-[40rem] mx-auto w-[100%] min-w-[20rem]'
+					options={options}
+					series={seriesy}
+					type='area'
+				/>
 			</div>
 		</>
 	);
