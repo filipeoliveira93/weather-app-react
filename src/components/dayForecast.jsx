@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import WeatherContext from "../weatherContext";
 import ShowIcon from "./showIcon";
-import WindIcon from "/icons/wind.svg"
+import WindIcon from "/icons/wind.svg";
 // import Termometer from './icons/thermometer-celsius.svg'
 
 function dailyForecast() {
@@ -13,9 +13,9 @@ function dailyForecast() {
 		daydata.weathercode = weatherData.current_weather.weathercode;
 		daydata.windspeed = `${weatherData.current_weather.windspeed} km/h`;
 		daydata.maxtemp = weatherData.daily.temperature_2m_max[0];
-		daydata.precipitationprop = weatherData.daily.precipitation_probability_max[0]
+		daydata.precipitationprop =
+			weatherData.daily.precipitation_probability_max[0];
 		daydata.mintemp = weatherData.daily.temperature_2m_min[0];
-
 
 		// console.log(daydata)
 	}
@@ -23,26 +23,67 @@ function dailyForecast() {
 	return (
 		<div>
 			{weatherData && (
-				<div className='w-[90%] h-40 mx-auto rounded-2xl p-5 bg-blue-1 m-2 grid grid-cols-2 gap-1 overflow-scroll'>
-					<div className='col-start-0 col-end-2 bg-slate-300/10'>
-						<p>{daydata.daytemperature} ºC</p>
-						<img width='60px' height='60px' src='/icons/thermometer-celsius.svg'/>
-						<p>{daydata.precipitationprop} %</p>
-						<img width='60px' height='60px' src='/icons/raindrop.svg'/>
-						<p>{daydata.windspeed}</p>
-						<img width='40px' height='40px' src='/icons/wind.svg'/>
-						<img width='60px' height='60px' src='/icons/thermometer-celsius.svg'/>
-						<p>max: {daydata.maxtemp} ºC</p>
-						<p>max: {daydata.mintemp} ºC</p>
-					</div>
-					{/* <p>{daydata.weathercode}</p>  */}
-					<div className=' bg-slate-300/10'>
-						<ShowIcon
-							styles=' col-start-8 col-end-13   col-span-2 row-span-2 flex flex-col justify-center items-center text-center'
-							width='80px'
-							height='80px'
-							weatherCode={daydata.weathercode}
-						/>
+				<div className='w-[90%] h-60 mx-auto rounded-2xl p-5 bg-blue-1 m-2 grid grid-cols-1 gap-1 overflow-auto'>
+					<div className='h-48 col-start-1 col-end-10 grid grid-cols-4 grid-rows-4 gap-2 text-lg'>
+						<div className='row-span-4 center-all flex-col shadow-component'>
+							<img
+								className='-mx-5'
+								width='100px'
+								height='100px'
+								src='/icons/thermometer-celsius.svg'
+							/>
+							<p className='h-[100%] text-center w-full font-semibold text-2xl'>
+								{daydata.daytemperature} ºC
+							</p>
+						</div>
+						<div className=' row-span-2 col-start-2 row-start-1 center-all flex-col shadow-component'>
+							<img
+								className='-mb-2'
+								width='70px'
+								height='70px'
+								src='/icons/thermometer-warmer.svg'
+							/>
+							<p className=" text-lg">{daydata.maxtemp} ºC</p>
+						</div>
+						<div className='row-span-2 col-start-2 row-start-3 center-all flex-col shadow-component'>
+							<img
+								className='-mb-2'
+								width='70px'
+								height='70px'
+								src='/icons/thermometer-colder.svg'
+							/>
+							<p>{daydata.mintemp} ºC</p>
+						</div>
+						<div className='row-span-2 col-start-3 row-start-1 center-all flex-col shadow-component'>
+							<img
+								className=' -mb-3'
+								width='60px'
+								height='70px'
+								src='/icons/wind.svg'
+							/>
+							<p className='text-center w-50%  -mb-3 '>
+								{daydata.windspeed}
+							</p>
+						</div>
+						<div className='row-span-2 col-start-3 row-start-3 center-all flex-col shadow-component'>
+							<img
+								className='-mb-8'
+								width='80px'
+								height='80px'
+								src='/icons/raindrop.svg'
+							/>
+							<p className='text-center w-full   mt-3'>
+								{daydata.precipitationprop} %
+							</p>
+						</div>
+						<div className='row-span-4 col-start-4 row-start-1 center-all flex-col shadow-component'>
+							<ShowIcon
+								styles=' col-start-8 col-end-13   col-span-2 row-span-2 flex flex-col justify-center items-center text-center'
+								width='70px'
+								height='70px'
+								weatherCode={daydata.weathercode}
+							/>
+						</div>
 					</div>
 				</div>
 			)}

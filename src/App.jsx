@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import WeatherSearch from "./weatherSearch"; //API
+import WeatherSearch from "./components/weatherSearch"; //API
 import WeatherContext from "./weatherContext"; //contexto
 import DayForecast from "./components/dayForecast";
 import DailyForecast from "./components/dailyForecast";

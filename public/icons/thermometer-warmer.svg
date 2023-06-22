@@ -17,7 +17,7 @@
 	</path>
 	<path d="M32.5,29H36m3,12.9a7,7,0,1,1-14,0,7.12,7.12,0,0,1,3-5.83v-17a4,4,0,1,1,8,0v17A7.12,7.12,0,0,1,39,41.9ZM32.5,25H36m-3.5-4H36" stroke-linecap="round" stroke-linejoin="round" fill="url(#a)" stroke="url(#b)"/>
 	<polyline points="44 38 44 26 41 29.45 44 26 47 29.45" fill="none" stroke="#ef4444" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-		<animateTransform attributeName="transform" type="translate" values="0 0; 0 0; 0 -6; 0 -6" dur="1.5s" keyTimes="0.0; 0.5; 0.9; 1.0" begin="0s" repeatCount="indefinite"/>
-		<animate attributeName="opacity" values="0; 1; 1; 0; 0" dur="1.5s" keyTimes="0.0; 0.3; 0.8; 0.9; 1.0" repeatCount="indefinite"/>
+		<!-- <animateTransform attributeName="transform" type="translate" values="0 0; 0 0; 0 -6; 0 -6" dur="1.5s" keyTimes="0.0; 0.5; 0.9; 1.0" begin="0s" repeatCount="indefinite"/> -->
+		<!-- <animate attributeName="opacity" values="0; 1; 1; 0; 0" dur="1.5s" keyTimes="0.0; 0.3; 0.8; 0.9; 1.0" repeatCount="indefinite"/> -->
 	</polyline>
 </svg>
