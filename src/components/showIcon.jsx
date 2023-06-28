@@ -1,7 +1,7 @@
 import React from "react";
 
 
-function showIcon( {weatherCode, width, height, styles}  ) {
+function showIcon( {weatherCode, width, height, styles, showtext }  ) {
     const weatherIcons = {
         0: ['☀️', 'Céu limpo', 'clear-day'],
         1: ['🌤️', 'Limpo com nuvens', 'partly-cloudy-day'],
@@ -39,8 +39,10 @@ function showIcon( {weatherCode, width, height, styles}  ) {
 
     return (
         <div  className={styles}>
-            <img width={width} height={height} src={src} alt="Weather icon"/>
-            <p>{weatherdescription}</p>
+            <img className="" width={width} height={height} src={src} alt="Weather icon"/>
+            {showtext &&
+                <p>{weatherdescription}</p>   
+            }
         </div>
     )
 
