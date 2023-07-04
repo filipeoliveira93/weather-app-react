@@ -28,19 +28,19 @@ function HourlyChart() {
 
 		return split[1];
 	});
-	let hoursday = hours ? hours.slice(0, 32) : [0];
+	let hoursday = hours ? hours.slice(0, 24) : [0];
 	// console.log("hoursday " + hoursday);
 	const seriesx = {
 		name: "hours",
 		// data: hoursday
-		data: hourlyData.time.slice(0, 32),
+		data: hourlyData.time.slice(0, 24),
 	};
 	// console.log(seriesx.data)
 	console.log(seriesx.data);
 	const seriesy = [
 		{
 			name: "Temp °C",
-			data: hourlyData.temperature_2m.slice(0, 32),
+			data: hourlyData.temperature_2m.slice(0, 24),
 		},
 	];
 	// console.log(seriesy);
@@ -263,9 +263,9 @@ function HourlyChart() {
 	return (
 		<>
 			<div
-				className={`w-[90%]  max-w-[40rem] bg-blue-1 mx-auto  rounded-2xl flex flex-col justify-center  items-center`}>
+				className={` bg-blue-1  rounded-2xl grid grid-cols-1 justify-center  items-center overflow-hidden `}>
 				<Chart
-					className='py-3 px-3 max-w-[40rem] mx-auto w-[100%] min-w-[20rem]'
+					className='py-3 px-3  w-[90%] mx-auto'
 					options={options}
 					series={seriesy}
 					type='area'

@@ -22,7 +22,7 @@ function weatherSearch() {
 	};
 
 	return (
-		<div className='w-[90%] h-24 mx-auto rounded-2xl p-5 bg-blue-1 m-2 '>
+		<div className='h-24 md:w-[70%] w-11/12 rounded-2xl p-5 bg-blue-1  m-6 mx-auto'>
 			<form className='flex gap-2 ' onSubmit={handleSearch}>
 				<input
 					className='w-[85%]  bg-slate-500 h-8 rounded-full p-4 focus:outline-0	 focus:bg-white focus:placeholder-gray-600 ease-linear'

@@ -26,7 +26,7 @@ function DailyForecast() {
 	});
 
 	return (
-		<div className='flex flex-col overflow-x-auto shadow-component  bg-blue-1 w-[90%]  mx-auto my-2 rounded-2xl  gap-2 p-4 h-[25rem] '>
+		<div className='flex flex-col overflow-y-auto shadow-component  bg-blue-1   mx-auto rounded-2xl  gap-2 p-4 h-full md:w-full '>
 			<h2 className='abslute font-semibold '>Previsão diária</h2>
 			<div className='grid grid-rows-7 gap-1 overflow-auto p-3 '>
 				{days.map((day, index) => (

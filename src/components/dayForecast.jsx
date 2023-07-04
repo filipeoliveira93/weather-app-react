@@ -25,8 +25,9 @@ function dailyForecast() {
 			<div>
 			
 				{weatherData &&  (
-					<div className='w-[90%] h-60 mx-auto rounded-2xl p-5 bg-blue-1 m-2 grid grid-cols-1 gap-1 overflow-auto'>
-						<div className='h-48 col-start-1 col-end-10 grid grid-cols-4 grid-rows-4 gap-2 text-lg'>
+					<div className=' rounded-2xl p-5 bg-blue-1 grid grid-cols-1 gap-1 overflow-auto '>
+						<p>Previsão hoje</p>
+						<div className='col-start-1 col-end-10 grid grid-cols-4 grid-rows-4 gap-2 text-lg'>
 							<div className='row-span-4 center-all flex-col shadow-component'>
 								<img
 									className='-mx-5'
