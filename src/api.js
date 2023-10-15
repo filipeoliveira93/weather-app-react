@@ -3,7 +3,9 @@ import axios from 'axios'
 const GEOCODE_API_URL = 'https://maps.googleapis.com/maps/api/geocode/json'
 const FORECAST_API_URL = 'https://api.open-meteo.com/v1/forecast'
 
-const API_KEY = 'AIzaSyAtDRhVstWbo-YnbnO6h64LyxFr0GOridg'
+const API_KEY = import.meta.env.VITE_REACT_APP_API_KEY;
+
+console.log(API_KEY)
 
 /**
  * Busca o endereço e retorna informações sobre a previsão do tempo
@@ -17,7 +19,7 @@ export const fetchWeatherData = async (address) => {
         const geocodeResponse = await axios.get(`${GEOCODE_API_URL}?address=${address}&key=${API_KEY}`)
 
         if (geocodeResponse) {
-            // console.log(geocodeResponse)
+            console.log(geocodeResponse)
             geocodeResult = geocodeResponse.data.results[0].geometry.location
         }
     } catch (error) {
