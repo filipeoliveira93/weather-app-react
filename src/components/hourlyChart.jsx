@@ -18,32 +18,23 @@ function HourlyChart() {
 	if (!weatherData) {
 		return null;
 	}
-	console.log(weatherData);
 	const hourlyData = weatherData?.hourly;
-
-	// console.log(hourlyData.time);
 	const hours = hourlyData?.time.map((hour) => {
 		const split = hour.split("T");
-		// console.log(split[1]);
 
 		return split[1];
 	});
 	let hoursday = hours ? hours.slice(0, 24) : [0];
-	// console.log("hoursday " + hoursday);
 	const seriesx = {
 		name: "hours",
-		// data: hoursday
 		data: hourlyData.time.slice(0, 24),
 	};
-	// console.log(seriesx.data)
-	console.log(seriesx.data);
 	const seriesy = [
 		{
 			name: "Temp °C",
 			data: hourlyData.temperature_2m.slice(0, 24),
 		},
 	];
-	// console.log(seriesy);
 
 	const options = {
 		responsive: [
