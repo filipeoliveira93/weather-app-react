@@ -2,48 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 html {
-	@apply bg-blue-2 text-slate-100;
-	@apply h-full;
-	font-family: 'Roboto', sans-serif;
+  @apply bg-blue-2 text-slate-100;
+  @apply h-full;
+  font-family: "Roboto", sans-serif;
 }
 
-
 ::-webkit-scrollbar {
-	padding: 10px;
-	width: 5px;
-	opacity: 0;
+  padding: 10px;
+  width: 5px;
+  opacity: 0;
 }
 
 ::-webkit-scrollbar-track {
-	background: #575c5500;
-	border-radius: 100px;
+  background: #575c5500;
+  border-radius: 100px;
 }
 
 ::-webkit-scrollbar-thumb {
-	background: #d4d4d450;
-	border-radius: 13px;
-
+  background: #d4d4d450;
+  border-radius: 13px;
 }
 
 ::-webkit-scrollbar-button {
-	width: 2px;
-	height: 2px;
+  width: 2px;
+  height: 2px;
 }
 
 ::-webkit-scrollbar-corner {
-	background: rgba(255, 0, 0, 0);
-
-
+  background: rgba(255, 0, 0, 0);
 }
 
-
 .shadow-component {
-	@apply border border-white/10 rounded-xl shadow-2xl
+  @apply border border-white/10 rounded-xl shadow-2xl;
 }
 
 .center-all {
-	@apply flex justify-center items-center
+  @apply flex justify-center items-center;
 }
