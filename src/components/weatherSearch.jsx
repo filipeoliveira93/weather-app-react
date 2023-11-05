@@ -21,13 +21,13 @@ function weatherSearch() {
   };
 
   return (
-    <div className="h-18 md:w-[65%] w-11/12 rounded-2xl bg-blue-1  m-6 mx-auto flex flex-row items-center justify-center p-5">
+    <div className="h-18 md:w-[72%] mx-5 my-5 rounded-2xl bg-blue-1 flex flex-row items-center justify-center p-5 shadow-component">
       <form
-        className="flex flex-row items-center justify-center gap-2 w-[100%]"
+        className="flex flex-row items-center justify-center gap-2 w-[100%] "
         onSubmit={handleSearch}
       >
         <input
-          className="w-[85%] bg-slate-500 h-8 rounded-full p-4 focus:outline-0 border border-white/10 focus:border-blue-300 focus:placeholder-slate-500 focus:bg-slate-500 ease-linear duration-300 "
+          className="w-[85%] bg-slate-500 h-8 rounded-full p-4 focus:outline-0 border border-white/10 focus:border-blue-300 focus:placeholder-slate-500 focus:bg-slate-500 ease-linear duration-300 shadow-component "
           type="text"
           value={address}
           onChange={(e) => setAddres(e.target.value)}

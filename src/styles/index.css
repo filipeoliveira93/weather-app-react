@@ -34,7 +34,7 @@ html {
 }
 
 .shadow-component {
-  @apply border border-white/10 rounded-xl shadow-2xl;
+  @apply border border-blue-300/20 rounded-xl shadow-md shadow-black/20;
 }
 
 .center-all {

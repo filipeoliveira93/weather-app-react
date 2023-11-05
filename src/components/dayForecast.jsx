@@ -24,7 +24,7 @@ function dailyForecast() {
   return (
     <div>
       {weatherData && (
-        <div className=' rounded-2xl p-5 bg-blue-1 grid grid-cols-1 gap-1 overflow-auto text-slate-300 '>
+        <div className=' rounded-2xl p-5 bg-blue-1 grid grid-cols-1 gap-1 overflow-auto text-slate-300 h-full shadow-component '>
           <p>Previsão hoje</p>
           <div className='col-start-1 col-end-10 grid grid-cols-4 grid-rows-4 gap-2 text-lg'>
             <div className='row-span-4 center-all shadow-component  flex-col items-center justify-center'>

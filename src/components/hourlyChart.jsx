@@ -19,20 +19,14 @@ function HourlyChart() {
     return null;
   }
   const hourlyData = weatherData?.hourly;
-  const hours = hourlyData?.time.map((hour) => {
-    const split = hour.split('T');
-
-    return split[1];
-  });
-  let hoursday = hours ? hours.slice(0, 24) : [0];
   const seriesx = {
     name: 'hours',
-    data: hourlyData.time.slice(0, 24),
+    data: hourlyData.time.slice(0, 32),
   };
   const seriesy = [
     {
       name: 'Temp °C',
-      data: hourlyData.temperature_2m.slice(0, 24),
+      data: hourlyData.temperature_2m.slice(0,32),
     },
   ];
 
@@ -74,7 +68,7 @@ function HourlyChart() {
       id: 'e4jrw',
       // stacked: true,
       toolbar: {
-        show: false,
+        show: true,
         tools: {
           selection: true,
           zoom: true,
@@ -92,7 +86,7 @@ function HourlyChart() {
       },
       radialBar: {
         hollow: {
-          background: colors['blue-3'],
+          background: colors['yellow-1'],
         },
         dataLabels: {
           name: {},
@@ -133,12 +127,12 @@ function HourlyChart() {
         opacityTo: 0.6,
         colorStops: [
           {
-            opacity: 0.9,
-            offset: 40,
-            color: colors['green-1'],
+            opacity: 0.4,
+            offset: 10,
+            color: colors['blue-3'],
           },
           {
-            opacity: 0.7,
+            opacity: 0.4,
             offset: 100,
             color: colors['blue-3'],
           },
@@ -147,7 +141,7 @@ function HourlyChart() {
     },
     grid: {
       borderColor: '#6A6B6C',
-      strokeDashArray: 3,
+      strokeDashArray: 4,
       xaxis: {
         lines: {
           show: true,
@@ -160,28 +154,28 @@ function HourlyChart() {
       },
       column: {},
       padding: {
-        top: 10,
-        right: 20,
+        top: 5,
+        right: 5,
         bottom: 10,
-        left: 10,
+        left: 5,
       },
     },
     legend: {
       show: false,
       floating: true,
-      fontSize: 14,
-      offsetX: -23,
+      fontSize: 18,
+      offsetX: 23,
       offsetY: 0,
       itemMargin: {
         vertical: 0,
       },
     },
     markers: {
-      size: 3,
+      size: 1,
       colors: ['#A6D6EE'],
       strokeWidth: 0,
       hover: {
-        size: 2,
+        size: 4,
         sizeOffset: 6,
       },
     },
@@ -190,8 +184,8 @@ function HourlyChart() {
       lineCap: 'smooth',
       dashArray: 0,
       color: 'red',
-      width: 4,
-      colors: [colors['green-2']],
+      width: 3,
+      colors: [colors['blue-3']],
     },
     tooltip: {
       theme: 'dark',
@@ -221,12 +215,12 @@ function HourlyChart() {
           hour: 'HH:mm',
         },
         style: {
-          fontSize: 11,
+          fontSize: 12,
         },
         offsetY: -1,
       },
       axisTicks: {
-        color: '#fff',
+        color: '#9da7b4',
       },
       tickAmount: 12,
       title: {
@@ -254,9 +248,11 @@ function HourlyChart() {
   return (
     <>
       <div
-        className={` bg-blue-1  rounded-2xl grid grid-cols-1 justify-center  items-center overflow-hidden `}>
+        className={` bg-blue-1 max-h-[595px]  rounded-2xl grid grid-cols-1 justify-center  items-center shadow-component`}>
+        <p className='mx-5 my-2'>Próximas horas</p>
         <Chart
-          className='py-3 px-3  w-[90%] mx-auto'
+          className='md:w-[70%] w-[90%] mx-auto flex
+          items-center justify-center p-1'
           options={options}
           series={seriesy}
           type='area'

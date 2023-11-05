@@ -13,13 +13,13 @@ function App() {
             value={{weatherData, setWeatherData}}>
             <WeatherSearch />
 
-            <div className='md:flex md:p-2 md:w-[80%] md:h-[80vh] md:mx-auto md:justify-center md:items-center grid grid-cols-1 w-[90%] mx-auto gap-3'>
-                <div className='md:h-[100%] md:w-[50%] grid gap-3 '>
-                    <DayForecast className='md:max-h-1/2' />
-                    <HourlyChart className='md:max-h-1/2' />
+            <div className='md:flex py-5 md:w-[100%] md:h-[80vh] md:mx-auto md:justify-center md:items-center grid grid-cols-1 w-[90%] mx-auto gap-[15px]'>
+                <div className='md:h-[100%] md:w-[50%] grid gap-[15px]  '>
+                    <DayForecast className='md:max-h-1/2 shadow-component' />
+                    <HourlyChart className='md:max-h-1/2 ' />
                 </div>
                 <div className='md:h-full'>
-                    <DailyForecast />
+                    <DailyForecast className='' />
                 </div>
             </div>
         </WeatherContext.Provider>
