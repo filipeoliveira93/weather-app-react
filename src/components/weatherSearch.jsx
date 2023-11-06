@@ -21,7 +21,7 @@ function weatherSearch() {
   };
 
   return (
-    <div className="h-18 md:w-[72%] mx-5 my-5 rounded-2xl bg-blue-1 flex flex-row items-center justify-center p-5 shadow-component">
+    <div className="h-18 md:w-[70%]  my-5 mx-auto rounded-2xl bg-blue-1 flex flex-row items-center justify-center p-5 shadow-component">
       <form
         className="flex flex-row items-center justify-center gap-2 w-[100%] "
         onSubmit={handleSearch}
@@ -45,6 +45,7 @@ function weatherSearch() {
           />
         </button>
       </form>
+      
       {error && <div>{error}</div>}
     </div>
   );
